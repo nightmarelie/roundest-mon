@@ -1,11 +1,22 @@
 import * as trpc from "@trpc/server";
 import { z } from "zod";
+import { getOptionsForVote } from "@mon/utils/pokemon";
+import { prisma } from "@mon/backend/utils/prisma";
 
 export const appRouter = trpc
   .router()
   .query("get-pokemon-pair", {
     async resolve() {
-      return {};
+      const [first, second] = getOptionsForVote();
+
+      const bothPokemon = await prisma.pokemon.findMany({
+        where: { id: { in: [first, second] } },
+      });
+
+      if (bothPokemon.length !== 2)
+        throw new Error("Failed to find two pokemon");
+
+      return { firstPokemon: bothPokemon[0], secondPokemon: bothPokemon[1] };
     },
   })
   .mutation("cast-vote", {
