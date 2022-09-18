@@ -10,7 +10,7 @@
     core-js-pure "^3.25.1"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.18.9":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.18.9", "@babel/runtime@^7.9.0":
   version "7.19.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.19.0.tgz#22b11c037b094d27a8a2504ea4dcff00f50e2259"
   integrity sha512-eR8Lo9hnDS7tqkO7NsV+mKvCmv5boaXFSZ70DnfhcgiEne8hv9oCEd36Klw74EtizEqLsy4YnW8UWwpBVolHZA==
@@ -165,6 +165,13 @@
   integrity sha512-rEUrBSGIoSFuYxwBYtlUFMlE2CwGhmW+w9355/5oduSw8e5h2+Tj4UrAGNNgP9915++wj5vkQo0UuOBqOAq4nw==
   dependencies:
     tslib "^2.4.0"
+
+"@trpc/react@^9.27.2":
+  version "9.27.2"
+  resolved "https://registry.yarnpkg.com/@trpc/react/-/react-9.27.2.tgz#c13a730189f5d56c109487882d3bd6c97537008f"
+  integrity sha512-d2Nu3gYD7W9B5J5GylLw41jElQexb9zzwOLmCUR54azhvkIjk2w5dZLLqG3ou7L4ZsnlLOHgyO/LMwrgR4U9ZA==
+  dependencies:
+    "@babel/runtime" "^7.9.0"
 
 "@types/json5@^0.0.29":
   version "0.0.29"
@@ -1375,6 +1382,11 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
+
+next-plausible@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/next-plausible/-/next-plausible-3.6.2.tgz#262abdbe4b566d8a26505bba0179306ece8c3167"
+  integrity sha512-WhyFo0ZjoActGHFtkBiTxgZ0ALLkrKEqpgH/G2JXFqfg2Dx6/ne2fjKvXDGyyL4IYIXnWz/UFJFq40TxbGa5zA==
 
 next@12.3.0:
   version "12.3.0"
