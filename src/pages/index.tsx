@@ -1,30 +1,22 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
 import { usePlausible } from "next-plausible";
-// import { trpc } from "@/utils/trpc";
+import { PokemonListing } from "@mon/components";
+import { trpc } from "@mon/utils/trpc";
 
 const Home: NextPage = () => {
-  // const {
-  //   data: pokemonPair,
-  //   refetch,
-  //   isLoading,
-  // } = trpc.useQuery(["get-pokemon-pair"], {
-  //   refetchInterval: false,
-  //   refetchOnReconnect: false,
-  //   refetchOnWindowFocus: false,
-  // });
-
   const {
     data: pokemonPair,
     refetch,
     isLoading,
-  } = { data: [], refetch: () => null, isLoading: false };
+  } = trpc.useQuery(["get-pokemon-pair"], {
+    refetchInterval: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+  });
 
-  // const voteMutation = trpc.useMutation(["cast-vote"]);
-  const voteMutation = {};
+  const voteMutation = trpc.useMutation(["cast-vote"]);
   const plausible = usePlausible();
 
   const voteForRoundest = (selected: number) => {
@@ -58,7 +50,7 @@ const Home: NextPage = () => {
       <div className="text-2xl text-center pt-8">Which Pokémon is Rounder?</div>
       {pokemonPair && (
         <div className="p-8 flex justify-between items-center max-w-2xl flex-col md:flex-row animate-fade-in">
-          {/* <PokemonListing
+          <PokemonListing
             pokemon={pokemonPair.firstPokemon}
             vote={() => voteForRoundest(pokemonPair.firstPokemon.id)}
             disabled={fetchingNext}
@@ -68,7 +60,7 @@ const Home: NextPage = () => {
             pokemon={pokemonPair.secondPokemon}
             vote={() => voteForRoundest(pokemonPair.secondPokemon.id)}
             disabled={fetchingNext}
-          /> */}
+          />
           <div className="p-2" />
         </div>
       )}
